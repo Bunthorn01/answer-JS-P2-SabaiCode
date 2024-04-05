@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    document.write("Answer1:<br>");
+    function student(name) {
+        return "Hello "+name;
+    }
+    document.write(student("Bunthorn"));
+
+    //===================================
+    document.write("<br><br>Answer2:<br>");
+    const sum = function(num1, num2) {
+        return num1+num2;
+    }
+    document.write("Their sum is ", sum(12,13));
+
+    //===================================
+    document.write("<br><br>Answer3:<br>");
+    const calculateAvg = (arr) => {
+        if(arr.length === 0) {
+            return 0;
+        }
+        let sum=0;
+        for(let i=0; i<arr.length; i++) {
+            sum += arr[i];
+        }
+        const avg = sum / arr.length;
+        return avg;
+    };
+    const arr = [10, 21, 34 ,41, 58];
+    document.writeln("The total of ", arr, " is ", calculateAvg(arr));
+    
+    //===================================
+    document.write("<br><br>Answer4:<br>");
+    const findBMI = function (weight, height) {
+        const bmi = weight / (height * height);
+        // const bmi = weight / Math.pow(height, 2);
+        let result;
+        if(bmi < 18.5) {
+            result = bmi+ ". You are Underweight";
+        } else if(bmi >= 18.5 && bmi < 25) {
+            result = bmi+ ". You are Normal weight";
+        } else if(bmi >= 25 && bmi < 30) {
+            result = bmi+ ". You are Overweight";
+        } else {
+            result = bmi+ ". You are Obase";
+        }
+        return result;
+    }
+    document.write("BMI is ", findBMI(73, 1.90))
+    
+    //===================================
+    document.write("<br><br>Answer5:<br>");
+    function filterProductsByQuantity(products) {
+        const filteredProducts = [];
+        for (let i = 0; i < products.length; i++) {
+            const product = products[i];
+            if (product.quantity > 0) {
+                   filteredProducts.push(product);
+                }
+            // if (product.quantity == 0) {
+            //     filteredProducts.push(product);
+            // }
+        }
+        return filteredProducts;
+    }
+    const products = [
+        { name: 'Product 1', price: 10, quantity: 2 },
+        { name: 'Product 2', price: 15, quantity: 0 },
+        { name: 'Product 3', price: 20, quantity: 3 },
+        { name: 'Product 4', price: 25, quantity: 0 },
+        { name: 'Product 5', price: 25, quantity: 10 }
+    ];
+    const filteredProducts = filterProductsByQuantity(products);
+    // Iterate over filtered products and display each product
+    for (let i = 0; i < filteredProducts.length; i++) {
+        const product = filteredProducts[i];
+        document.write("Name: " + product.name + ", Price: " + product.price + ", Quantity: " + product.quantity + "<br>");
+    }
+        
+    //===================================
+    document.write("<br><br>Answer6:<br>");
+    function isStrongPassword(password) {
+    // Check if the length of the password is at least 8 characters
+        if (password.length < 8) {
+            return false;
+        }
+            return true;
+    }
+    // Get password input from the user
+    const password = prompt("Enter your password(must at least 8 characters.):");
+    // Check if the password is strong
+    const isStrong = isStrongPassword(password);
+    // Display the result
+    if (isStrong) {
+      alert("Password is strong!");
+    } else {
+      alert("Password is not strong! Please use at least 8 characters.");
+    }
+    document.write("Your password is ", password)
+
+    //===================================
+    document.write("<br><br>Answer7:<br>");
+    function countVowels(str) {
+        const vowels = 'aeiouAEIOU';
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+            if (vowels.indexOf(str[i]) !== -1) {
+                count++;
+            }
+        }
+    return count;
+    }
+    const inputString = "Hello World";
+    document.write("Number of vowels: " + countVowels(inputString)); // Output: 3 (e, o, o)
+
+    //===================================
+    document.write("<br><br>Answer8:<br>");
+    function bubbleSort(arr) {
+        var len = arr.length;
+        for (var i = 0; i < len; i++) {
+            for (var j = 0; j < len - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap the elements
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+    var unsortedArray = [5, 3, 8, 1, 2];
+    var sortedArray = bubbleSort(unsortedArray);
+    document.write(sortedArray); // Output: [1, 2, 3, 5, 8]
+
+    //===================================
+    document.write("<br><br>Answer9:<br>");
+    function median(arr) {
+        // First, let's sort the array in ascending order
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    var temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        var middleIndex = Math.floor(arr.length / 2);
+        // Check if the length of the array is even or odd
+        if (arr.length % 2 === 0) {
+            // If even, return the average of the two middle values
+            return (arr[middleIndex - 1] + arr[middleIndex]) / 2;
+        } else {
+            // If odd, return the middle value
+            return arr[middleIndex];
+        }
+    }
+
+    // Example usage:
+    var numbers = [3, 5, 1, 8, 2, 7, 4, 6];
+    document.write(median(numbers)); // Output: 4.5
+
+    //===================================
+    document.write("<br><br>Answer10:<br>");
+    function factorial(n) {
+        if (n === 0 || n === 1) {
+            return 1;
+        } else {
+            var result = 1;
+            for (var i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+    }
+    var number = 5;
+    document.write(factorial(number)); // Output: 120
+</script>
