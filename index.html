@@ -109,20 +109,23 @@
     document.write("Your password is ", password)
 
     //===================================
-    document.write("<br><br>Answer7:<br>");
+    console.log("Answer7:");
     function countVowels(str) {
         const vowels = 'aeiouAEIOU';
         let count = 0;
         for (let i = 0; i < str.length; i++) {
-            if (vowels.indexOf(str[i]) !== -1) {
-                count++;
+            for (let j = 0; j < vowels.length; j++) {
+                if (str[i] === vowels[j]) {
+                    count++;
+                    break; // Exit the inner loop once a vowel is found
+                }
             }
         }
-    return count;
+        return count;
     }
     const inputString = "Hello World";
-    document.write("Number of vowels: " + countVowels(inputString)); // Output: 3 (e, o, o)
-
+    console.log("Number of vowels: " + countVowels(inputString)); // Output: 3 (e, o, o)
+    
     //===================================
     document.write("<br><br>Answer8:<br>");
     function bubbleSort(arr) {
